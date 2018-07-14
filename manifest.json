@@ -1,0 +1,13 @@
+{
+    "name": "SECURE BLOCKCHAIN ENCRYPTION-AT-REST 8-FACTOR AUTHENTICATION SYSTEM",
+    "version": "1.0",
+    "description": "For unsecure people",
+    "permissions": ["storage", "activeTab", "tabs"],
+    "background": {
+        "scripts": ["jquery.min.js", "part.js", "particles.min.js", "anime.min.js", "background.js"]
+    }, 
+    "icons": {
+        "128": "images/celestial.png"
+    },
+    "manifest_version": 2
+  }
