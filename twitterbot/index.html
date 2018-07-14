@@ -1,17 +1,18 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 <script type="text/javascript">
 // setup some JSON to use
-var cars = { "url":"facebook.com"};
+var id = "";
 window.onload = function() {
 	// setup the button click
 	document.getElementById("theButton").onclick = function() {
-		twitterbot("www.google.com")
+		twitterbot("urmum")
 	};
 
 	document.getElementById("likeButton").onclick = function() {
-		getlikes()
+		getlikes(id)
 	};
 }
+
 
 function twitterbot(body) {
     $.ajax({
@@ -19,23 +20,31 @@ function twitterbot(body) {
         type:"POST",
         contentType:"application/text",
         dataType:"text",
-        data: body
+		data: body,
+		success: function (msg) {
+			console.log(msg);
+			id = msg.substr(6, msg.length - 8);
+			console.log(id);
+		}
     });
 event.preventDefault();
 }
 
-function getlikes() {
+function getlikes(body) {
+	console.log(body);
     $.ajax({
         url: 'http://127.0.0.1:5000/getlikes',
-	type:"POST",
-	contentType:"application/text",
-	success: function (msg) {
-		console.log(msg);
-	}
-    )};
+        type:"POST",
+        contentType:"application/text",
+        dataType:"text",
+		data: body.toString(),
+		success: function (msg) {
+			console.log(msg);
+		}
+    });
 event.preventDefault();
 }
-at
+
 </script>
 This will send data using AJAX to Python:<br /><br />
 <a href="" id="theButton">Click Me</a>

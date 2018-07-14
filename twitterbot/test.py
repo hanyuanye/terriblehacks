@@ -19,8 +19,6 @@ api = tweepy.API(auth)
 app = Flask(__name__)
 CORS(app)
 
-currtweet = 0
-
 @app.route('/')
 def output():
 	# serve index template
@@ -31,17 +29,24 @@ def twitterbot():
 	# read json + reply
 	data = request.data
 	result = str(data)
-	print(result)
-	global currtweet
+	result = result[2:]
+	result = result[:-1]
 	currtweet = api.update_status(status=result)
+	response = {
+		'id': currtweet.id
+	}
 	
-	return result
+	return jsonify(response), 200
 
 @app.route('/getlikes', methods = ['POST'])
 def getlikes():
 	#check likes 
-	tweet = api.get_status(currtweet.id)
-	favourites = tweet.favourite_count
+	id = str(request.data)
+	id = id[2:]
+	id = id[:-1]
+	print(id)
+	tweet = api.get_status(id)
+	favourites = tweet.favorite_count
 	authorized = favourites >= 1
 	response = {
 		'result': authorized

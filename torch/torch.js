@@ -1,3 +1,5 @@
+document.body.style.cursor = "url('torch.png')";
+
 var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
 var svgNS = svg.namespaceURI;
 var height = window.innerHeight;
@@ -8,6 +10,7 @@ svg.style.height=height*2;
 svg.style.width = width*2;
 svg.style.left="-0%";
 svg.style.top="-0%";
+svg.style.cursor = "url('torch.png')";
 
 newpath = document.createElementNS(svgNS,"path");
 newpath.setAttribute("id","hover-circle");
