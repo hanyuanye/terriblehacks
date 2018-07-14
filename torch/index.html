@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+	<p class="backlink"><a href="../class9.html">Back to Class 9 page »</a></p>
+
+<h1>Including JavaScript In Your Page</h1>
+<p>Including JavaScript in your page is a fairly simple process.</p>
+
+
+<h2 id="first,_what_is_javascript?">First, What Is JavaScript?</h2>
+<p>From the W3C Schools Site:</p>
+
+<blockquote>
+	<ul>
+		<li>JavaScript was designed to add interactivity to HTML pages</li>
+		<li>JavaScript is a scripting language</li>
+		<li>A scripting language is a lightweight programming language</li>
+		<li>JavaScript is usually embedded directly into HTML pages</li>
+		<li>JavaScript is an interpreted language (means that scripts execute without preliminary compilation)</li>
+		<li>Everyone can use JavaScript without purchasing a license</li>
+	</ul>
+</blockquote>
+
+<h2 id="including_the_javascript">Including the JavaScript</h2>
+<p>You can include JavaScript in your HTML in two ways:</p>
+
+<ul>
+	<li>Writing the code in your HTML</li>
+	<li>Including it as a link to an external file</li>
+</ul>
+
+<p>For the most part, you will include the JavaScript as an external file.</p>
+
+<h2 id="the__tag">The <code>Script</code> Tag</h2>
+<p>The <code>&lt;script&gt;</code> tag is what we use to includes our JavaScript. It's a lot like the <code>&lt;link&gt;</code> tag you've already been using to include your CSS files.</p>
+
+<p>Here's a very basic snippet of JavaScript using the script tag. This JavaScript is written directly into our HTML page. It will call and alert box as soon as the page loads.</p>
+
+<pre><code><span class="highlight">&lt;script type="text/javascript"&gt;</span>
+  alert("This alert box was called with the onload event");
+<span class="highlight">&lt;/script&gt;</span></code></pre>
+
+<p>When using the script tag, we must always use the attribute name and value of <code>type="text/javascript"</code>.</p>
+
+
+<h3 id="using_the_code">Using the <code>script</code> tag to include an external JavaScript file</h3>
+<p>To include an external JavaScript file, we can use the script tag with the attribute <code>src</code>. You've already used the <code>src</code> attribute when using images. The value for the src attribute should be the path to your JavaScript file.</p>
+
+<pre><code>&lt;script type="text/javascript" <span class="highlight">src="path-to-javascript-file.js"</span>&gt;&lt;/script&gt;</code></pre>
+
+<p>This script tag should be included between the <code>&lt;head&gt;</code> tags in your HTML document.</p>
+
+<h3 id="javascript_files">JavaScript Files</h3>
+JavaScript files are not HTML files or CSS files.
+
+<ul>
+	<li>Always end with the <strong>js</strong> extension</li>
+	<li>Only include JavaScript</li>
+</ul>
+
+<p>It's customary to put all JavaScript files in a <strong>folder called js</strong> on websites, like so:</p>
+
+<h3 id="simple_demo_of_including_javascript">Simple Demo of Including JavaScript</h3>
+<p>Here's a very simple demonstration of how to include an external JavaScript file into an HTML page.</p>
+<ul>
+	<li><a href="basic-javascript-example.html">Basic JavaScript Example</a></li>
+</ul>
+
+
+
+<h2 id="other_people's_javascript">Other People's JavaScript</h2>
+<p>For this class you are not expected to write any actual JavaScript code. Lucky for you, many of people have already written lots of JavaScript and even allow you to use it for free.</p>
+
+<h3>JavaScript Frameworks</h3>
+<p>A Framework is basically a library of code for a certain language. Generally, the framework abstracts common tasks and makes it easier and faster for designers and developers to write their specific code. Frameworks don't really do anything by themselves, they just provide an easier platform for people to build on.</p>
+
+<p>Common JavaScript Frameworks:</p>
+<ul>
+	<li><a href="http://jquery.com/" title="jQuery: The Write Less, Do More, JavaScript Library">JQuery</a></li>
+	<li><a href="http://www.prototypejs.org/" title="Prototype JavaScript framework: Easy Ajax and DOM manipulation for dynamic web applications">Prototype</a></li>
+	<li><a href="http://mootools.net/" title="MooTools - a compact javascript framework">MooTools</a></li>
+	<li><a href="http://script.aculo.us/" title="script.aculo.us - web 2.0 javascript">script.aculo.us</a></li>
+</ul>
+
+<p>Of these frameworks, JQuery is currently the most popular one. It's also the one you're most like to encounter being used as a buzz word.</p>
+
+<h3 id="javascript_file_sizes">JavaScript File Sizes</h3>
+<p>Many JavaScript files can tend to be rather large, which can slow down the load time of your page. Popular frameworks usually offer a "minified" version of their code. You should always use this version in your pages because it will have a smaller file size.</p>
+
+
+<p class="backlink"><a href="../class9.html">Back to Class 9 page »</a></p>
+<script type="text/javascript" src="./torch.js"></script>
+
+</body>
+</html>
