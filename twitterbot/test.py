@@ -5,6 +5,7 @@ import tweepy
 
 from flask import Flask, render_template, request, redirect, Response
 import random, json
+from flask_cors import CORS
 
 consumer_key = '8HMKlKJtXx44MqiBQld7qHM9d'
 consumer_secret = '70vU3Qs6STydQXvqx8Jk6QtCZBuQ1Eho3bKCglD8QkdCvYXndh'
@@ -16,19 +17,19 @@ auth.set_access_token(access_token, access_token_secret)
 api = tweepy.API(auth)
 
 app = Flask(__name__)
+CORS(app)
 
 @app.route('/')
 def output():
 	# serve index template
 	return render_template('index.html', name='Joe')
 
-@app.route('/receiver', methods = ['POST'])
-def worker():
+@app.route('/twitterbot', methods = ['POST'])
+def twitterbot():
 	# read json + reply
-	data = request.get_json()
-	for item in data:
-		# loop over every row
-		result += str(item['url']) + '\n'
+	data = request.data
+	result = str(data)
+	print(result)
 	api.update_status(status=result)
 	return result
 
