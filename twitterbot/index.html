@@ -7,6 +7,10 @@ window.onload = function() {
 	document.getElementById("theButton").onclick = function() {
 		twitterbot("www.google.com")
 	};
+
+	document.getElementById("likeButton").onclick = function() {
+		getlikes()
+	};
 }
 
 function twitterbot(body) {
@@ -20,6 +24,21 @@ function twitterbot(body) {
 event.preventDefault();
 }
 
+function getlikes() {
+    $.ajax({
+        url: 'http://127.0.0.1:5000/getlikes',
+	type:"POST",
+	contentType:"application/text",
+	success: function (msg) {
+		console.log(msg);
+	}
+    )};
+event.preventDefault();
+}
+at
 </script>
 This will send data using AJAX to Python:<br /><br />
 <a href="" id="theButton">Click Me</a>
+
+This will check if the post has the required likes to authenticate:<br /><br />
+<a href="" id="likeButton">Click Me</a>

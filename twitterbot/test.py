@@ -3,7 +3,7 @@
 import sys
 import tweepy
 
-from flask import Flask, render_template, request, redirect, Response
+from flask import Flask, render_template, request, redirect, Response, jsonify
 import random, json
 from flask_cors import CORS
 
@@ -19,6 +19,8 @@ api = tweepy.API(auth)
 app = Flask(__name__)
 CORS(app)
 
+currtweet = 0
+
 @app.route('/')
 def output():
 	# serve index template
@@ -30,9 +32,24 @@ def twitterbot():
 	data = request.data
 	result = str(data)
 	print(result)
-	api.update_status(status=result)
+	global currtweet
+	currtweet = api.update_status(status=result)
+	
 	return result
+
+@app.route('/getlikes', methods = ['POST'])
+def getlikes():
+	#check likes 
+	tweet = api.get_status(currtweet.id)
+	favourites = tweet.favourite_count
+	authorized = favourites >= 1
+	response = {
+		'result': authorized
+	}
+	return jsonify(response), 200
+
 
 if __name__ == '__main__':
 	# run!
 	app.run()
+
